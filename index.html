@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Cartica 💌</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Corazones flotando -->
+  <div class="hearts"></div>
+
+  <!-- Carta -->
+  <div class="letter">
+    <h2>💌 Mi Cartica 💌</h2>
+    <div class="letter-text">
+      <p>
+        Avi, es raro porque nunca te había escrito y menos así,
+        pero la verdad siento que lo tengo que hacer, y aún más
+        dedicarte esa hermosa canción. El tiempo que paso contigo es increíble,
+        <strong>ERES INCREÍBLE</strong> en todo sentido. Contigo puedo ser yo mismo
+        y eso es lo que te hace diferente del resto de personas que conozco.
+        Quería compartirte esta cartica y espero que te guste,
+        así como me gusta verte y pasar tiempo contigo 💕
+      </p>
+    </div>
+  </div>
+
+  <!-- Reproductor -->
+  <div class="music-player">
+    <audio id="audio" src="tu-cancion.mp3"></audio>
+    <div class="controls">
+      <button id="playBtn">▶️ Reproducir</button>
+      <button id="pauseBtn">⏸️ Pausar</button>
+    </div>
+    <div class="disk-container" id="diskContainer">
+      <div class="disk">
+        <img src="imgfoto.png" alt="Disco">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const audio = document.getElementById("audio");
+    const playBtn = document.getElementById("playBtn");
+    const pauseBtn = document.getElementById("pauseBtn");
+    const diskContainer = document.getElementById("diskContainer");
+
+    playBtn.addEventListener("click", () => {
+      audio.play();
+      diskContainer.style.display = "flex";
+      diskContainer.classList.add("playing");
+    });
+
+    pauseBtn.addEventListener("click", () => {
+      audio.pause();
+      diskContainer.classList.remove("playing");
+    });
+
+    // Generar corazones automáticamente
+    const hearts = document.querySelector(".hearts");
+    for (let i = 0; i < 20; i++) {
+      const heart = document.createElement("span");
+      heart.textContent = "💜";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.top = Math.random() * 100 + "vh";
+      heart.style.fontSize = Math.random() * 20 + 15 + "px";
+      heart.style.animationDelay = (Math.random() * 2) + "s";
+      hearts.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
